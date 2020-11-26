@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Home page</title>
+</head>
+<body>
+    <div id="container">
+        <div id="navigation">
+            <div id="hamburgerMenu">
+                 <div class="line"></div>
+                 <div class="line"></div>
+                 <div class="line"></div>            
+            </div>
+            <div id="farRight">
+                <img id="close" src="images/close.png">
+                <img id="search" src="images/search.png" >
+                <img id="cart" src="images/shoppingCart.png">
+                <img id="favourite" src="images/favourite.png">
+                <img id="account" src="images/persona.png">
+            </div>
+        </div>
+        <div id="topContent">
+             <input id="searchBar" type="text"  placeholder="Search..." autocomplete="off">
+             <br>
+             <div id="logo"></div>
+        </div> 
+        <br>
+        <div id="sliderContainer">
+            <div class="slide">
+                <img class="slideImages" src="images/slider/slide1.jpg">
+            </div>
+            <div class="slide">2</div>
+            <div class="slide">3</div>
+            <div class="slide">4</div>
+        </div>
+<br>
+        <div id="Controls-Container">
+
+                <img  class="controls" id="previousSlide" src="images/LessThanIcon.png">
+                <img class="controls" id="pauseSlide" src="images/pause.png">
+                <img class="controls" id="nextSlide" src="images/MoreThanIcon.png">
+          
+        </div>
+    </div>
+       <script>
+       var elSearchIcon = document.getElementById('search');//search Icon
+       elSearchIcon.addEventListener('click',getSearchBar, false);
+
+       // show search bar 
+       function getSearchBar(){
+            document.getElementById('searchBar').style.cssText = "display:block;";
+            document.getElementById('close').style.cssText = "display:block;";
+       }
+        
+       var elCloseIcon = document.getElementById('close');
+       elCloseIcon.addEventListener('click', hideSearchBar, false);
+
+       //close Icon
+       function hideSearchBar(){
+            document.getElementById('searchBar').style.cssText = "display:none;";
+            elCloseIcon.style.cssText = "display:none;";
+       }
+       //focus show close icon
+       var elSearchBar = document.getElementById('searchBar');
+       elSearchBar.addEventListener('focusin', hideCloseIconFocus,false);
+       
+       function hideCloseIconFocus(){   
+           if(elSearchBar){
+            document.getElementById('close').style.cssText = 'display:none;';
+           }
+       }
+        
+        //focus hide close icon
+       var searchBar = document.getElementById('searchBar');
+       searchBar.addEventListener('blur', showCloseIconOFF_Focus,false);
+       
+       function showCloseIconOFF_Focus(){   
+            document.getElementById('close').style.cssText = 'display:block;';
+       }
+
+       </script>
+
+
+</body>
+</html>
